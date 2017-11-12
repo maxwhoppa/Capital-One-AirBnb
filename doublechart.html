@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+<head>  
+<script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	title:{
+		text: "Average Price to Average Number of Reviews per Month"
+	},	
+	axisY: {
+		title: "Average Price ($)",
+		titleFontColor: "#4F81BC",
+		lineColor: "#4F81BC",
+		labelFontColor: "#4F81BC",
+		tickColor: "#4F81BC"
+	},
+	axisY2: {
+		title: "Reviews/month",
+		titleFontColor: "#C0504E",
+		lineColor: "#C0504E",
+		labelFontColor: "#C0504E",
+		tickColor: "#C0504E"
+	},	
+	toolTip: {
+		shared: true
+	},
+	legend: {
+		cursor:"pointer",
+		itemclick: toggleDataSeries
+	},
+	data: [{
+		type: "column",
+		name: "Average Price Per Night",
+		legendText: "Average Price",
+		showInLegend: true, 
+		dataPoints:[ //data from pandas averages.to_json
+		{label:"Bayview",y:125.7033898305},{label:"Bernal Heights",y:201.0753880266},{label:"Castro/Upper Market",y:249.51875},{label:"Chinatown",y:277.4078947368},{label:"Crocker Amazon",y:115.1428571429},{label:"Diamond Heights",y:199.5909090909},{label:"Downtown/Civic Center",y:210.1524822695},{label:"Excelsior",y:144.091503268},{label:"Financial District",y:271.4785714286},{label:"Glen Park",y:231.8292682927},{label:"Golden Gate Park",y:235.875},{label:"Haight Ashbury",y:235.5531400966},{label:"Inner Richmond",y:230.2926829268},{label:"Inner Sunset",y:255.0470588235},{label:"Lakeshore",y:164.9423076923},{label:"Marina",y:320.9509803922},{label:"Mission",y:212.0250965251},{label:"Nob Hill",y:239.5062111801},{label:"Noe Valley",y:270.6333333333},{label:"North Beach",y:321.7555555556},{label:"Ocean View",y:147.6936936937},{label:"Outer Mission",y:182.6890243902},{label:"Outer Richmond",y:203.5538461538},{label:"Outer Sunset",y:164.5196850394},{label:"Pacific Heights",y:331.0987654321},{label:"Parkside",y:229.9834710744},{label:"Potrero Hill",y:326.0804195804},{label:"Presidio",y:570.6666666667},{label:"Presidio Heights",y:539.8461538462},{label:"Russian Hill",y:363.5669642857},{label:"Seacliff",y:287.0},{label:"South of Market",y:350.0177993528},{label:"Treasure Island/YBI",y:91.72},{label:"Twin Peaks",y:212.0891089109},{label:"Visitacion Valley",y:134.0789473684},{label:"West of Twin Peaks",y:204.9756097561},{label:"Western Addition",y:278.351732991}
+		]
+	},
+	{
+		type: "column",	
+		name: "Average Reviews Per Month",
+		legendText: "Average Reviews",
+		axisYType: "secondary",
+		showInLegend: true,
+		dataPoints:[//data from pandas monthly.tojson
+		{label:"Bayview",y:2.8995744681},{label:"Bernal Heights",y:1.6365479452},{label:"Castro\\/Upper Market",y:1.5949875312},{label:"Chinatown",y:0.6697058824},{label:"Crocker Amazon",y:2.4304347826},{label:"Diamond Heights",y:2.7627777778},{label:"Downtown\\/Civic Center",y:2.1945263158},{label:"Excelsior",y:1.9432307692},{label:"Financial District",y:1.8461538462},{label:"Glen Park",y:1.3395652174},{label:"Golden Gate Park",y:1.2025},{label:"Haight Ashbury",y:1.5086604361},{label:"Inner Richmond",y:1.6633183857},{label:"Inner Sunset",y:1.7951181102},{label:"Lakeshore",y:1.7471428571},{label:"Marina",y:1.3501271186},{label:"Mission",y:1.5310446009},{label:"Nob Hill",y:1.2701244813},{label:"Noe Valley",y:1.6110060976},{label:"North Beach",y:1.646618705},{label:"Ocean View",y:2.2671428571},{label:"Outer Mission",y:1.7854676259},{label:"Outer Richmond",y:2.0861333333},{label:"Outer Sunset",y:2.6508920188},{label:"Pacific Heights",y:1.343255814},{label:"Parkside",y:1.781122449},{label:"Potrero Hill",y:1.6005309735},{label:"Presidio",y:1.4933333333},{label:"Presidio Heights",y:1.3659375},{label:"Russian Hill",y:1.1911180124},{label:"Seacliff",y:2.1522222222},{label:"South of Market",y:1.6083333333},{label:"Treasure Island\\/YBI",y:1.3566666667},{label:"Twin Peaks",y:1.6408860759},{label:"Visitacion Valley",y:2.7034375},{label:"West of Twin Peaks",y:1.8556842105},{label:"Western Addition",y:1.4699490662}
+				
+		]
+	}]
+});
+chart.render();
+
+function toggleDataSeries(e) {
+	if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+		e.dataSeries.visible = false;
+	}
+	else {
+		e.dataSeries.visible = true;
+	}
+	chart.render();
+}
+
+}
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+</html>

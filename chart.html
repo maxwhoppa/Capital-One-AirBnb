@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<html>
+<head>  
+<script>
+  
+window.onload = function () {
+	
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	
+	title:{
+		text:"San Francisco Neighborhood Popularity"
+	},
+	axisX:{
+        interval: 2,
+        includeZero: false
+	},
+	axisY2:{
+        minimum:8.8,
+		interlacedColor: "rgba(1,77,101,.2)",
+		gridColor: "rgba(1,77,101,.1)",
+		title: "Neighborhood Average Rating (Out of 10)"
+	},
+	data: [{ //Converted reviewData.csv to JSON
+		type: "bar",
+		name: "neighborhoods",
+		axisYType: "secondary",
+		color: "#014D65",
+		dataPoints: [
+			
+  {
+    y: 9.148936170212766,
+    label: "Bayview"
+  },
+  {
+    y: 9.505524861878452,
+    label: "Bernal Heights"
+  },
+  {
+    y: 9.493702770780857,
+    label: "Castro/Upper Market"
+  },
+  {
+    y: 9.16161616161616,
+    label: "Chinatown"
+  },
+  {
+    y: 9.08695652173913,
+    label: "Crocker Amazon"
+  },
+  {
+    y: 9.705882352941176,
+    label: "Diamond Heights"
+  },
+  {
+    y: 9.02724795640327,
+    label: "Downtown/Civic Center"
+  },
+  {
+    y: 9.255813953488373,
+    label: "Excelsior"
+  },
+  {
+    y: 9.313131313131313,
+    label: "Financial District"
+  },
+  {
+    y: 9.695652173913043,
+    label: "Glen Park"
+  },
+  {
+    y: 8.875,
+    label: "Golden Gate Park"
+  },
+  {
+    y: 9.30379746835443,
+    label: "Haight Ashbury"
+  },
+  {
+    y: 9.36697247706422,
+    label: "Inner Richmond"
+  },
+  {
+    y: 9.491935483870968,
+    label: "Inner Sunset"
+  },
+  {
+    y: 9.147058823529411,
+    label: "Lakeshore"
+  },
+  {
+    y: 9.417021276595746,
+    label: "Marina"
+  },
+  {
+    y: 9.377538829151732,
+    label: "Mission"
+  },
+  {
+    y: 9.278481012658228,
+    label: "Nob Hill"
+  },
+  {
+    y: 9.45398773006135,
+    label: "Noe Valley"
+  },
+  {
+    y: 9.31159420289855,
+    label: "North Beach"
+  },
+  {
+    y: 9.252747252747254,
+    label: "Ocean View"
+  },
+  {
+    y: 9.46043165467626,
+    label: "Outer Mission"
+  },
+  {
+    y: 9.412162162162161,
+    label: "Outer Richmond"
+  },
+  {
+    y: 9.431279620853081,
+    label: "Outer Sunset"
+  },
+  {
+    y: 9.384146341463415,
+    label: "Pacific Heights"
+  },
+  {
+    y: 9.364583333333334,
+    label: "Parkside"
+  },
+  {
+    y: 9.477477477477477,
+    label: "Potrero Hill"
+  },
+  {
+    y: 9.666666666666666,
+    label: "Presidio"
+  },
+  {
+    y: 9.580645161290322,
+    label: "Presidio Heights"
+  },
+  {
+    y: 9.305732484076433,
+    label: "Russian Hill"
+  },
+  {
+    y: 9.38888888888889,
+    label: "Seacliff"
+  },
+  {
+    y: 9.3096926713948,
+    label: "South of Market"
+  },
+  {
+    y: 9.625,
+    label: "Treasure Island/YBI"
+  },
+  {
+    y: 9.666666666666666,
+    label: "Twin Peaks"
+  },
+  {
+    y: 9.4375,
+    label: "Visitacion Valley"
+  },
+  {
+    y: 9.606382978723405,
+    label: "West of Twin Peaks"
+  },
+  {
+    y: 9.42733564013841,
+    label: "Western Addition"
+  }
+		]
+	}]
+});
+chart.render();
+
+}
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 100%; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script>
+  
+</script>
+</body>
+</html>
