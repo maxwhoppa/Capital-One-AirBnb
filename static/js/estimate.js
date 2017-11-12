@@ -74,10 +74,46 @@ function estimateOptimal(data){
                 index =i;
             }
         }
-        // Undercut most successful house by $20 a night to deter competition
+        // Undercut most successful house by $10 a night to deter competition
         console.log(closest);
         document.getElementById("optimalResponse").innerHTML = "$" + (parseInt(closest[index][2])-10) + " per night"
     }
+}
+
+//One time calculation to determine the income per year with a $100m investment
+function investment(){
+    fetch('data/estimate.csv').then(function(response) {
+        if (response.status !== 200) {
+            throw response.status;
+        }
+        return response.text();
+    }).then(function(file_content) {
+        var data = csvToArray(String(file_content));
+
+        var profitable=[] ;
+        for (i =0; i<data.length; i++){
+            if (profitable.length<80){
+                profitable.push(parseFloat(data[2]),parseFloat(data[3]), parseFloat(data[2]) * parseFloat(data[3]));
+                profitable.sort(investmentSort);
+            }else{
+                if (profitable[2] < parseFloat(data[2])* parseFloat(data[3])){
+                    profitable.splice(79,1);
+                    profitable.push(parseFloat(data[2]),parseFloat(data[3]), parseFloat(data[2]) * parseFloat(data[3]));
+                    profitable.sort(investmentSort);
+                }
+            }
+        }
+
+        var income_per_year=0;
+        for (i =0; i<profitable.length; i++){
+            income_per_year += profitable[2]*3.5*12 
+        }
+        console.log(income_per_year)
+
+
+    }).catch(function(status) {
+        console.log('Error ' + status);
+    });
 }
 
 // ----------------------------------- HELPER METHODS ---------------------------------------
@@ -125,6 +161,15 @@ function sortFunction(a, b) {
     }
     else {
         return (a[3] < b[3]) ? -1 : 1;
+    }
+}
+
+function investmentSort(a, b) {
+    if (a[2] === b[2]) {
+        return 0;
+    }
+    else {
+        return (a[2] < b[2]) ? -1 : 1;
     }
 }
 
