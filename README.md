@@ -5,19 +5,19 @@ Capital One Software Engineer Winter Summit Challenge. This challenge provided u
 
 ## Criteria
 
-[x] Visualize the data: Graph some (any 3) interesting metrics, maps, or trends from the dataset.
+[x] Visualize the data: Graph some (any 3) interesting metrics, maps, or trends from the dataset. - HeatMap, House Listings, Graphs
 
-[x] Price estimation: Given the geo-location (latitude and longitude) of a new property, estimate the weekly average income the homeowner can make with Airbnb.
+[x] Price estimation: Given the geo-location (latitude and longitude) of a new property, estimate the weekly average income the homeowner can make with Airbnb. - Weekly Income Estimation
 
-[x] Bookings optimization: Given the geo-location (latitude and longitude) of a property, what is the ideal price per night that will yield maximum bookings or revenue?
+[x] Bookings optimization: Given the geo-location (latitude and longitude) of a property, what is the ideal price per night that will yield maximum bookings or revenue? - Optimal Price Estimation
 
 ## Bonus
 
-[x] Animate: Add an animation to your visualization.
+[x] Animate: Add an animation to your visualization. - estimation transitions, button slides, and footer appearing/disapearing
 
-[x] Popularity: Can you identify the neighborhood that averages the most positive reviews?
+[x] Popularity: Can you identify the neighborhood that averages the most positive reviews? - Popularity graph
 
-[x] Investment: If I have $100 million to invest, where in San Francisco should I buy properties so I can maximize my returns with Airbnb? When will I break even?
+[x] Investment: If I have $100 million to invest, where in San Francisco should I buy properties so I can maximize my returns with Airbnb? When will I break even? - 20 years
 
 ### Build
 
