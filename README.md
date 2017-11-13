@@ -45,7 +45,7 @@ Capital One Software Engineer Winter Summit Challenge. This challenge provided u
 
 All computations for csv and json data can be found	in jupyiter notebook [managedata.ipynd](https://github.com/maxwhoppa/Capital-One-AirBnb/blob/master/managedata.ipynb). 
 
-All other computations made with this data are can be found in [estimate.js] (https://github.com/maxwhoppa/Capital-One-AirBnb/blob/master/static/js/estimate.js)
+All other computations made with this data are can be found in [estimate.js](https://github.com/maxwhoppa/Capital-One-AirBnb/blob/master/static/js/estimate.js)
 
 ## Authors
 
