@@ -80,45 +80,46 @@ function estimateOptimal(data){
     }
 }
 
-//One time calculation to determine the income per year with a $100m investment
-function investment(){
-    fetch('data/estimate.csv').then(function(response) {
-        if (response.status !== 200) {
-            throw response.status;
-        }
-        return response.text();
-    }).then(function(file_content) {
-        var data = csvToArray(String(file_content));
+//One time calculation to determine the income per year for the most profitable houses with a $100m investment -------------------------------------
 
-        var profitable=[] ;
-        for (i =1; i<data.length; i++){
-            if (i<81){
-                profitable.push([parseFloat(data[i][2]),parseFloat(data[i][3]), parseFloat(data[i][2]) * parseFloat(data[i][3]), parseFloat(data[i][0]), parseFloat(data[i][1])]);
-                profitable.sort(investmentSort);
-            }else{
-                if (profitable[79][2] < parseFloat(data[i][2])* parseFloat(data[i][3])){
-                    profitable.splice(79,1);
-                    profitable.push([parseFloat(data[i][2]),parseFloat(data[i][3]), parseFloat(data[i][2]) * parseFloat(data[i][3]), parseFloat(data[i][0]), parseFloat(data[i][1])]);
-                    profitable.sort(investmentSort);
-                }
-            }
-        }
+// function investment(){
+//     fetch('data/estimate.csv').then(function(response) {
+//         if (response.status !== 200) {
+//             throw response.status;
+//         }
+//         return response.text();
+//     }).then(function(file_content) {
+//         var data = csvToArray(String(file_content));
 
-        var income_per_year=0;
-        var coordinates =[]
-        for (i =0; i<profitable.length; i++){
-            house_income_year = profitable[i][2]*3.5*12 
-            income_per_year += house_income_year
-            coordinates.push([profitable[i][3],profitable[i][4],house_income_year])
-        }
-        console.log(income_per_year);
-        console.log(coordinates);
+//         var profitable=[] ;
+//         for (i =1; i<data.length; i++){
+//             if (i<81){
+//                 profitable.push([parseFloat(data[i][2]),parseFloat(data[i][3]), parseFloat(data[i][2]) * parseFloat(data[i][3]), parseFloat(data[i][0]), parseFloat(data[i][1])]);
+//                 profitable.sort(investmentSort);
+//             }else{
+//                 if (profitable[79][2] < parseFloat(data[i][2])* parseFloat(data[i][3])){
+//                     profitable.splice(79,1);
+//                     profitable.push([parseFloat(data[i][2]),parseFloat(data[i][3]), parseFloat(data[i][2]) * parseFloat(data[i][3]), parseFloat(data[i][0]), parseFloat(data[i][1])]);
+//                     profitable.sort(investmentSort);
+//                 }
+//             }
+//         }
+
+//         var income_per_year=0;
+//         var coordinates =[]
+//         for (i =0; i<profitable.length; i++){
+//             house_income_year = profitable[i][2]*3.5*12 
+//             income_per_year += house_income_year
+//             coordinates.push([profitable[i][3],profitable[i][4],house_income_year])
+//         }
+//         console.log(income_per_year);
+//         console.log(coordinates);
         
 
-    }).catch(function(status) {
-        console.log('Error ' + status);
-    });
-}
+//     }).catch(function(status) {
+//         console.log('Error ' + status);
+//     });
+// }
 
 // ----------------------------------- HELPER METHODS ---------------------------------------
 
