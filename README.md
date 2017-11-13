@@ -17,7 +17,7 @@ Capital One Software Engineer Winter Summit Challenge. This challenge provided u
 
 [x] Popularity: Can you identify the neighborhood that averages the most positive reviews? - Popularity graph
 
-[x] Investment: If I have $100 million to invest, where in San Francisco should I buy properties so I can maximize my returns with Airbnb? When will I break even? - 20 years
+[x] Investment: If I have $100 million to invest, where in San Francisco should I buy properties so I can maximize my returns with Airbnb? When will I break even? - 12 years, see 3.c for more details
 
 ### Build
 

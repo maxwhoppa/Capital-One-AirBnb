@@ -91,25 +91,29 @@ function investment(){
         var data = csvToArray(String(file_content));
 
         var profitable=[] ;
-        for (i =0; i<data.length; i++){
-            if (profitable.length<80){
-                profitable.push(parseFloat(data[2]),parseFloat(data[3]), parseFloat(data[2]) * parseFloat(data[3]));
+        for (i =1; i<data.length; i++){
+            if (i<81){
+                profitable.push([parseFloat(data[i][2]),parseFloat(data[i][3]), parseFloat(data[i][2]) * parseFloat(data[i][3]), parseFloat(data[i][0]), parseFloat(data[i][1])]);
                 profitable.sort(investmentSort);
             }else{
-                if (profitable[2] < parseFloat(data[2])* parseFloat(data[3])){
+                if (profitable[79][2] < parseFloat(data[i][2])* parseFloat(data[i][3])){
                     profitable.splice(79,1);
-                    profitable.push(parseFloat(data[2]),parseFloat(data[3]), parseFloat(data[2]) * parseFloat(data[3]));
+                    profitable.push([parseFloat(data[i][2]),parseFloat(data[i][3]), parseFloat(data[i][2]) * parseFloat(data[i][3]), parseFloat(data[i][0]), parseFloat(data[i][1])]);
                     profitable.sort(investmentSort);
                 }
             }
         }
 
         var income_per_year=0;
+        var coordinates =[]
         for (i =0; i<profitable.length; i++){
-            income_per_year += profitable[2]*3.5*12 
+            house_income_year = profitable[i][2]*3.5*12 
+            income_per_year += house_income_year
+            coordinates.push([profitable[i][3],profitable[i][4],house_income_year])
         }
-        console.log(income_per_year)
-
+        console.log(income_per_year);
+        console.log(coordinates);
+        
 
     }).catch(function(status) {
         console.log('Error ' + status);
@@ -169,7 +173,7 @@ function investmentSort(a, b) {
         return 0;
     }
     else {
-        return (a[2] < b[2]) ? -1 : 1;
+        return (a[2] > b[2]) ? -1 : 1;
     }
 }
 
