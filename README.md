@@ -41,6 +41,12 @@ Capital One Software Engineer Winter Summit Challenge. This challenge provided u
 
 	c. $100 million investment - median house is $1,236,700 (https://www.zillow.com/san-francisco-ca/home-values/) and the average guest stays 3.5 days (https://blog.atairbnb.com/economic-impact-airbnb/). This means 80 houses can be purchased with $100 million. Using reviews per month (assuming reviews/month is a measure to indicate frquency of guests) and price per night, determine the 80 most profitable houses and their individual incomes per year. This will give a total estimated income of $8,202,694.08 a year. Coordinates for houses along with their yearly income can be found here: http://airbnbchallenge.surge.sh/data/investment.csv
 
+## Computation
+
+All computations for csv and json data can be found	in jupyiter notebook [managedata.ipynd] - (https://github.com/maxwhoppa/Capital-One-AirBnb/blob/master/managedata.ipynb). 
+
+All other computations made with this data are can be found in [estimate.js] - (https://github.com/maxwhoppa/Capital-One-AirBnb/blob/master/static/js/estimate.js)
+
 ## Authors
 
 * **Maxwell Newman** - (https://github.com/Maxwhoppa)
